@@ -1,0 +1,55 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.masonry {
+  display: grid;
+  gap: 25px;
+  grid: masonry / repeat(auto-fill, minmax(200px, 1fr));
+  counter-reset: boxes;
+}
+
+figure {
+  margin: 0;
+  display: grid;
+}
+
+figure::before,
+.box::before{
+  counter-increment: boxes;
+  content: counter(boxes);
+  grid-column:1;
+  grid-row: 1;
+  background-color: rgba(0,0,0,.7);
+  align-self: start;
+  padding: .5em;
+  color: #fff;
+  font-weight: bold;
+}
+
+figure img {
+  z-index: -1;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.box {
+  background-color: #D2B48C;
+  color: #fff;
+  border-radius: .5em;
+  height: 340px;
+  grid-column: 2 / 4;
+  grid-row: 2;
+  padding: 20px;
+  display: grid;
+}
+
+figure:hover {
+    transform: scale(1.1) rotate(-1deg);
+    cursor: pointer;
+}
